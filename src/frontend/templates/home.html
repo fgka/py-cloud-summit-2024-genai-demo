@@ -23,8 +23,8 @@
     </div>
 
     <div class="container posts mt-0">
-        <form class="form-inline" method="POST" action="/post">
-            <!-- ok: django-no-csrf-token -->
+<!-- ok: django-no-csrf-token -->
+            <form class="form-inline" method="POST" action="/post">
             {{ form.hidden_tag() }}
             <label class="sr-only" for="name">Name</label>
             <div class="input-group mb-2 mr-sm-2">
