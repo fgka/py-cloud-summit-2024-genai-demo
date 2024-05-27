@@ -8,7 +8,9 @@ from flask_pymongo import PyMongo
 import bleach
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = 'mongodb://{}/guestbook'.format(os.environ.get('GUESTBOOK_DB_ADDR'))
+DEFAULT_GUESTBOOK_DB_ADDR = "127.0.0.1:27017"
+DEFAULT_PORT = 8321
+app.config["MONGO_URI"] = 'mongodb://{}/guestbook'.format(os.environ.get('GUESTBOOK_DB_ADDR', DEFAULT_GUESTBOOK_DB_ADDR))
 mongo = PyMongo(app)
 
 @app.route('/messages', methods=['GET'])
@@ -29,11 +31,7 @@ def add_message():
     return  jsonify({}), 201
 
 if __name__ == '__main__':
-    for v in ['PORT', 'GUESTBOOK_DB_ADDR']:
-        if os.environ.get(v) is None:
-            print("error: {} environment variable not set".format(v))
-            exit(1)
 
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
-    app.run(debug=False, port=os.environ.get('PORT'), host='0.0.0.0')
+    app.run(debug=False, port=os.environ.get('PORT', DEFAULT_PORT), host='0.0.0.0')

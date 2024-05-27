@@ -6,19 +6,21 @@ import os
 import datetime
 import time
 from flask import Flask, render_template, redirect, url_for, request, jsonify
-from flask_wtf import FlaskForm, CSRFProtect
+from flask_wtf import CSRFProtect
 import requests
 import dateutil.relativedelta
 
 app = Flask(__name__)
-app.config["BACKEND_URI"] = 'http://{}/messages'.format(os.environ.get('GUESTBOOK_API_ADDR'))
+DEFAULT_GUESTBOOK_API_ADDR = "127.0.0.1:8321"
+DEFAULT_PORT = 8123
+import os
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+
+app.config["BACKEND_URI"] = 'http://{}/messages'.format(os.environ.get('GUESTBOOK_API_ADDR', DEFAULT_GUESTBOOK_API_ADDR))
 app.config['WTF_CSRF_ENABLED'] = True
 
 csrf = CSRFProtect(app)
-
-@app.before_request
-def check_csrf():
-    return csrf.protect()
 
 
 @app.route('/')
@@ -55,14 +57,9 @@ def format_duration(timestamp):
 
 
 if __name__ == '__main__':
-    for v in ['PORT', 'GUESTBOOK_API_ADDR']:
-        if os.environ.get(v) is None:
-            print("error: {} environment variable not set".format(v))
-            exit(1)
-
     # register format_duration for use in html template
     app.jinja_env.globals.update(format_duration=format_duration)
 
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
-    app.run(debug=False, port=os.environ.get('PORT'), host='0.0.0.0')
+    app.run(debug=False, port=os.environ.get('PORT', DEFAULT_PORT), host='0.0.0.0')
