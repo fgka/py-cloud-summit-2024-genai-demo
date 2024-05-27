@@ -6,11 +6,20 @@ import os
 import datetime
 import time
 from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask_wtf import FlaskForm, CSRFProtect
 import requests
 import dateutil.relativedelta
 
 app = Flask(__name__)
 app.config["BACKEND_URI"] = 'http://{}/messages'.format(os.environ.get('GUESTBOOK_API_ADDR'))
+app.config['WTF_CSRF_ENABLED'] = True
+
+csrf = CSRFProtect(app)
+
+@app.before_request
+def check_csrf():
+    return csrf.protect()
+
 
 @app.route('/')
 def main():
