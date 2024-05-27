@@ -24,7 +24,7 @@
 
     <div class="container posts mt-0">
         <form class="form-inline" method="POST" action="/post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            {{ csrf_token() }}
             <label class="sr-only" for="name">Name</label>
             <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
