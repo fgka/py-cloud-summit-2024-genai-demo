@@ -29,10 +29,12 @@ We've got this:
 
 ![gemini_logo](./src/frontend/static/gemini_logo.jpeg)
 
+Save the one you like in ``src/frontend/static/gemini_logo.jpeg``, we are going to use it later.
+
+
 ### Try your own fine tuning
 
 Try to get closer by giving specific instructions.
-
 
 ## Now code assist itself
 
