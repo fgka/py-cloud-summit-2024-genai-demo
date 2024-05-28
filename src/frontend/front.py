@@ -30,8 +30,8 @@ class MyForm(FlaskForm):
 
 @app.route('/')
 def main():
-    form = MyForm()
     """ Retrieve a list of messages from the backend, and use them to render the HTML template """
+    form = MyForm()
     response = requests.get(app.config["BACKEND_URI"], timeout=3)
     json_response = json.loads(response.text)
     return render_template('home.html', form=form, messages=json_response)
