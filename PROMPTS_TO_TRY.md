@@ -3,6 +3,7 @@
 If you want to follow along from the start we provide some branches to guide you through:
 
 * `main`: Final code, all changes incorporated
+  * For the increments at each step, checkout [The branch diffs you should see](./BRANCH_DIFFS.md)
 * `steps/0_starting_point`: The code with minimal changes to run locally, the source is in [Guestbook with Cloud Code](https://github.com/GoogleCloudPlatform/cloud-code-samples/tree/v1/python/python-guestbook)
 * `steps/1_logo_created`: Just added the logo in ``src/frontend/static/gemini_logo.jpeg``
 * ``steps/2_refactoring``: Refactoring suggestions for ``src/backend/back.py``
