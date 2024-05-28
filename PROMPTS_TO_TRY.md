@@ -1,6 +1,20 @@
 # Some Gemini prompts to try
 
+If you want to follow along from the start we provide some branches to guide you through:
+
+* `main`: Final code, all changes incorporated
+* `steps/0_starting_point`: The code with minimal changes to run locally, the source is in [Guestbook with Cloud Code](https://github.com/GoogleCloudPlatform/cloud-code-samples/tree/v1/python/python-guestbook)
+* `steps/1_logo_created`: Just added the logo in ``src/frontend/static/gemini_logo.jpeg``
+* ``steps/2_refactoring``: Refactoring suggestions for ``src/backend/back.py``
+* ``steps/3_logo_added``: Added the logo to the HTML
+* ``steps/4_csrf_fixed``: Fixed the [CSRF vulnerability](https://owasp.org/www-community/attacks/csrf)
+
 ## Not *really* code assist, but still
+
+Git guidance:
+
+* Starting branch: ``steps/0_starting_point``
+* Ending branch: ``steps/1_logo_created``
 
 Let us create a new logo for the application.
 For that we are going to use [Gemini Advanced](https://gemini.google.com/)
@@ -31,7 +45,6 @@ We've got this:
 
 Save the one you like in ``src/frontend/static/gemini_logo.jpeg``, we are going to use it later.
 
-
 ### Try your own fine tuning
 
 Try to get closer by giving specific instructions.
@@ -41,6 +54,11 @@ Try to get closer by giving specific instructions.
 Below are a couple of prompts to try out on this code base.
 
 ### Explain code
+
+Git guidance (no change):
+
+* Starting branch: ``steps/1_logo_created``
+* Ending branch: ``steps/1_logo_created``
 
 To explain a particular code, just select the file and ask for it. For example:
 
