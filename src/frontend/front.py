@@ -10,16 +10,18 @@ from flask_wtf import FlaskForm, CSRFProtect
 import requests
 import dateutil.relativedelta
 
-app = Flask(__name__)
 DEFAULT_GUESTBOOK_API_ADDR = "127.0.0.1:8321"
+GUESTBOOK_API_ADDR = os.environ.get('GUESTBOOK_API_ADDR', DEFAULT_GUESTBOOK_API_ADDR)
 DEFAULT_PORT = 8123
-import os
+PORT = os.environ.get('PORT', DEFAULT_PORT)
+DEFAULT_HOST = "127.0.0.1"
+HOST = os.environ.get('HOST', DEFAULT_HOST)
 SECRET_KEY = os.urandom(32)
+
+app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
-
-app.config["BACKEND_URI"] = 'http://{}/messages'.format(os.environ.get('GUESTBOOK_API_ADDR', DEFAULT_GUESTBOOK_API_ADDR))
+app.config["BACKEND_URI"] = f'http://{GUESTBOOK_API_ADDR}/messages'
 app.config['WTF_CSRF_ENABLED'] = True
-
 csrf = CSRFProtect(app)
 
 class MyForm(FlaskForm):
@@ -68,4 +70,4 @@ if __name__ == '__main__':
 
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
-    app.run(debug=False, port=os.environ.get('PORT', DEFAULT_PORT), host='0.0.0.0')
+    app.run(debug=False, port=PORT, host=HOST)

@@ -7,10 +7,15 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 import bleach
 
-app = Flask(__name__)
 DEFAULT_GUESTBOOK_DB_ADDR = "127.0.0.1:27017"
+GUESTBOOK_DB_ADDR = os.environ.get('GUESTBOOK_DB_ADDR', DEFAULT_GUESTBOOK_DB_ADDR)
 DEFAULT_PORT = 8321
-app.config["MONGO_URI"] = 'mongodb://{}/guestbook'.format(os.environ.get('GUESTBOOK_DB_ADDR', DEFAULT_GUESTBOOK_DB_ADDR))
+PORT = os.environ.get('PORT', DEFAULT_PORT)
+DEFAULT_HOST = "127.0.0.1"
+HOST = os.environ.get('HOST', DEFAULT_HOST)
+
+app = Flask(__name__)
+app.config["MONGO_URI"] = f'mongodb://{GUESTBOOK_DB_ADDR}/guestbook'
 mongo = PyMongo(app)
 
 @app.route('/messages', methods=['GET'])
@@ -34,4 +39,4 @@ if __name__ == '__main__':
 
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
-    app.run(debug=False, port=os.environ.get('PORT', DEFAULT_PORT), host='0.0.0.0')
+    app.run(debug=False, port=PORT, host=HOST)
