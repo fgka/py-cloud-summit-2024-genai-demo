@@ -105,7 +105,6 @@ Ask for to view the source page and you should see the following snippet:
 
 ```html
     <div class="container posts mt-0">
-<!-- ok: django-no-csrf-token -->
             <form class="form-inline" method="POST" action="/post">
             <input id="csrf_token" name="csrf_token" type="hidden" value="IjMwNWI0NzIxZmU2MTRiOWMyMGY1NTE4YWQzNmRmNzhmM2FmNzE5YTki.ZlXAsA.uIenYsnVxq7KGzBCnZlguZYtFHw">
             <label class="sr-only" for="name">Name</label>
