@@ -1,3 +1,11 @@
+# Demo with Gemini
+
+There are couple of documents to help using Gemini and playing with it.
+
+* [Adding Gemini Code Assist](./GEMINI.md) to help you add Gemini to Visual Studio Code.
+* [Remote `minikube`](./REMOTE_MINIKUBE.md) shows you how to have `minikube` running remotely and accessing locally.
+* [Running the code locally](./LOCAL_RUN.md) shows you how to run all without Docker or minikube for debugging and testing.
+
 # Guestbook with Cloud Code
 
 The Guestbook sample demonstrates how to deploy a Kubernetes application with a front end service and a back end service using the Cloud Code IDE extension.  
