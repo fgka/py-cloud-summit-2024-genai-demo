@@ -155,10 +155,10 @@ Let us check the fix:
 semgrep ci
 ```
 
-Q: Oops, is still being flagged, but why? 
-A: Because, in this case, you need to tell Semgrep that you fixed it.
-Q: How?
-A: Just add the following comment before the open `<form>` tag, like below:
+* Q: Oops, is still being flagged, but why? 
+* A: Because, in this case, you need to tell Semgrep that you fixed it.
+* Q: How?
+* A: Just add the following comment before the open `<form>` tag, like below:
 
 ```html
     <div class="container posts mt-0">
