@@ -37,7 +37,7 @@ Make the logo clean and simple, yet recognisable
 Note: you should change it to your brand.
 
 ```text
-This applicaiton should also evoke the Google brand and identify the applicaiton as a guestbook
+This application should also evoke the Google brand and identify the application as a guestbook
 ```
 
 We've got this:
@@ -66,7 +66,7 @@ To explain a particular code, just select the file and ask for it. For example:
 Select the file ``src/backend/back.py`` and type
 
 ```text
-Please give me a high-level explaination of what this code does
+Please give me a high-level explanation of what this code does
 ```
 
 ### Refactoring
@@ -79,8 +79,19 @@ Git guidance:
 Let us ask for Gemini to improve maintainability. Select the ``src/backend/back.py`` or ``src/frontend/front.py`` file and ask:
 
 ```text
-Could you please refactor the code to be better organized
+Could you please refactor the code to be better organized. Do not truncate any responses. Output the refactored file
 ```
+
+#### [Optional] Add some tests
+
+Optionally, especially if Gemini returned functions in the refactored code, we can ask it to generate Unit Tests for sections:
+
+1. Highlight the function to be tested.
+2. Right-click -> `Gemini Code Assist` -> `Generate Unit Tests`.
+
+The generated snippets might not be fully complete, but can be used to build a test suite for the application.
+
+![image](img/code-assist-generate-unit-tests.png)
 
 ### Let us add the new logo
 
@@ -90,8 +101,8 @@ Git guidance:
 * Ending branch: ``steps/3_logo_added``
 
 
-We generate a brand new logo up there. 
-Now is time to incorporate it.
+We generated a brand new logo up there. 
+Now is the time to incorporate it.
 We assume you saved the logo as ``src/frontend/static/gemini_logo.jpeg`` for this example.
 Select the file ``src/frontend/templates/home.html`` and ask the following:
 
