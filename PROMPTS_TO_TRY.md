@@ -70,6 +70,11 @@ Please give me a high-level explaination of what this code does
 
 ### Refactoring
 
+Git guidance:
+
+* Starting branch: ``steps/1_logo_created``
+* Ending branch: ``steps/2_refactoring``
+
 Let us ask for Gemini to improve maintainability. Select the ``src/backend/back.py`` or ``src/frontend/front.py`` file and ask:
 
 ```text
@@ -77,6 +82,12 @@ Could you please refactor the code to be better organized
 ```
 
 ### Let us add the new logo
+
+Git guidance:
+
+* Starting branch: ``steps/2_refactoring``
+* Ending branch: ``steps/3_logo_added``
+
 
 We generate a brand new logo up there. 
 Now is time to incorporate it.
@@ -94,6 +105,11 @@ Please add the title (left to the logo): "My new Guestbook"
 ```
 
 ### How about the outer loop?
+
+Git guidance:
+
+* Starting branch: ``steps/3_logo_added``
+* Ending branch: ``steps/4_csrf_fixed``
 
 Let us assume that your code got submitted and your CI/CD ran [Semgrep](https://semgrep.dev/) for static security analysis.
 
