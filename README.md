@@ -5,6 +5,7 @@ There are couple of documents to help using Gemini and playing with it.
 * [Adding Gemini Code Assist](./GEMINI.md) to help you add Gemini to Visual Studio Code.
 * [Remote `minikube`](./REMOTE_MINIKUBE.md) shows you how to have `minikube` running remotely and accessing locally.
 * [Running the code locally](./LOCAL_RUN.md) shows you how to run all without Docker or minikube for debugging and testing.
+* [Some Gemini prompts to try](./GEMINI.md) how to go from the vanilla example to what you see here.
 
 # Guestbook with Cloud Code
 
