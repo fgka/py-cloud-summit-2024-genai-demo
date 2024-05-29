@@ -7,6 +7,10 @@ There are couple of documents to help using Gemini and playing with it.
 * [Running the code locally](./LOCAL_RUN.md) shows you how to run all without Docker or minikube for debugging and testing.
 * [Some Gemini prompts to try](./PROMPTS_TO_TRY.md) how to go from the vanilla example to what you see here.
 
+## Repository QR
+
+![repo-qr](./img/repo-qr.png)
+
 # Guestbook with Cloud Code
 
 The Guestbook sample demonstrates how to deploy a Kubernetes application with a front end service and a back end service using the Cloud Code IDE extension.  
