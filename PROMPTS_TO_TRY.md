@@ -181,3 +181,7 @@ semgrep ci
 ```
 
 Re-run Semgrep and it should have been marked as fixed.
+
+## Repository QR
+
+![repo-qr](./img/repo-qr.png)
